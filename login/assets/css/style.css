@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(34, 33, 33);
+    
+    
+}
+
+.hi{
+    height: 100vb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* start login */
+.box{
+    background-color: black;
+    color: white;
+    padding: 40px 40px 30px 40px;
+    border-radius: 10px;
+    
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+/* style inpute */
+.inp_name{
+    margin-top: 25px;
+    padding: 5px 15px;
+    background-color: black;
+    color: white;
+    border: solid 3px black;
+    border-bottom: solid 3px white;
+    transition-duration: 0.7s;
+}
+
+.inp_name:hover{
+    padding: 10px 15px;
+}
+
+.inp_name:focus-visible{
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.inp_name:active{
+    padding: 10px 15px;
+}
+
+/* style submit */
+
+.submit{
+    margin-top: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 50px;
+}
+
+
+
+/* end login */
+
+/* alert style */
+.alert_danger{
+    background-color: rgb(255, 104, 104);
+    border: solid 2px rgb(255, 48, 48);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.alert_success{
+    background-color: rgb(104, 255, 142);
+    border: solid 2px rgb(29, 248, 58);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+
+
+/* start anime */
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box::after , .box::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 60%, rgb(75, 135, 184) , rgb(100, 110, 227) , cyan);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 12px;
+    animation: 4s spin linear infinite;
+}
+
+
+.box::before{
+    filter: blur(1.5rem);
+    opacity: 2;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+/* end anime */
