@@ -1,0 +1,145 @@
+/* تنظیمات عمومی */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(34, 33, 33);
+}
+
+/* تنظیمات بخش اصلی */
+.hi {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* استایل جعبه ورود */
+.box {
+    background-color: black;
+    color: white;
+    padding: 40px 40px 30px 40px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* استایل ورودی‌ها */
+.inp_name {
+    margin-top: 25px;
+    padding: 5px 15px;
+    background-color: black;
+    color: white;
+    border: solid 3px black;
+    border-bottom: solid 3px white;
+    transition-duration: 0.7s;
+}
+
+.inp_name:hover, .inp_name:active {
+    padding: 10px 15px;
+}
+
+.inp_name:focus-visible {
+    outline: none;
+}
+
+/* استایل دکمه ثبت */
+.submit {
+    margin-top: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 50px;
+}
+
+/* استایل انیمیشن ۳ نقطه */
+.hidden {
+    display: none;
+}
+
+#loadingDots .dot {
+    animation: blink 1.5s infinite;
+}
+
+#loadingDots .dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+#loadingDots .dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* استایل جعبه اعلان */
+#alertBox {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgb(104, 255, 142);
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    display: none; /* مخفی پیش‌فرض */
+}
+
+/* استایل‌های هشدار */
+.alert_danger {
+    background-color: rgb(255, 104, 104);
+    border: solid 2px rgb(255, 48, 48);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.alert_success {
+    background-color: rgb(104, 255, 142);
+    border: solid 2px rgb(29, 248, 58);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+/* انیمیشن جعبه */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box::after, .box::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 60%, rgb(75, 135, 184), rgb(100, 110, 227), cyan);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 12px;
+    animation: 4s spin linear infinite;
+}
+
+.box::before {
+    filter: blur(1.5rem);
+    opacity: 2;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
